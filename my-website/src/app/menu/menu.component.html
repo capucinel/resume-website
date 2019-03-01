@@ -1,0 +1,18 @@
+<ng-scrollbar>
+<nav class="menu-container">
+  <div class="menu-header">
+    <div class="menu-header-img"></div>
+    <div class="menu-header-title">Capucine Leclerc</div>
+  </div>
+
+  <div class="networks">
+    <a href="#" class="gh" title="Join us on Github"><i class="fa fa-github" aria-hidden="true"></i></a>
+    <a href="#" class="g-plus" title="Join us on Google+"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+    <a href="#" class="in" title="Join us on Linked In"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+  </div>
+
+  <ul class="menu-main">
+    <li class="menu-main-link" *ngFor="let elem of menu"><a [routerLink]="[elem.link]" (click)=hideNavMobile()>{{elem.value}}</a></li>
+  </ul>
+</nav>
+</ng-scrollbar>

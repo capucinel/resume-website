@@ -1,0 +1,102 @@
+@import "../../assets/styles/variables";
+
+//variables
+$basic-dark-color: #212121;
+$basic-light-color: #fff;
+$border-radius: 50%;
+$font-size: 20px;
+
+.menu {
+
+  &-container {
+    margin-top: $global-margin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-header {
+
+    &-img {
+      background: url('/assets/photo/capucine.JPG');
+      background-size: cover;
+      width: 150px;
+      height: 150px;
+      border-radius:$border-radius;
+         }
+
+    &-title {
+      font-family: inherit;
+      // padding: 30px 0 20px 0;
+      padding: 7% 0 5% 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  &-main {
+    padding-left: 0;
+    text-align: center;
+
+    &-link {
+      padding-bottom: 11%;
+      list-style: none;
+      margin: 0;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.networks {
+  display: flex;
+
+  &:nth-child(2) {
+    //margin-top: 20px;
+  }
+
+  &:nth-child(2n) {
+
+    a {
+      color: $basic-dark-color;
+      border-color: $basic-dark-color;
+      text-decoration: none !important;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      font-size: $font-size;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.2s linear 0.2s;
+
+      &:last-child {
+        margin-bottom: 20px;
+      }
+
+      i {
+        position: relative;
+        z-index: 3;
+        transition: all 0.2s linear 0s;
+      }
+
+      &:hover {
+        transition: all 0.2s linear 0s;
+        border-color: rgba($basic-dark-color, 0);
+
+        i {
+          transform: scale(1.15);
+          text-shadow: 4px 0px 3px rgba($basic-dark-color, 0.3);
+          transition: all 0.2s linear 0.2s;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

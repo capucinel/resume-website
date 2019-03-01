@@ -1,0 +1,62 @@
+@import "../../assets/styles/variables";
+
+p {
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.home {
+
+  &-container {
+    background: url(/assets/photo/home.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    padding: 1%;
+    width: 98%;
+  }
+
+  &-content {
+    margin: 1% 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    &-contact {
+      padding: 8px;
+      text-decoration: none;
+      border: 1px solid $primary-light-color;
+      border-radius: 10px;
+      color: $primary-light-color;
+    }
+
+    &-details,
+    &-contact {
+      width: 70%;
+      border: 0.5px solid $primary-light-color;
+      border-radius: 30px;
+      padding: 2% 0 1% 5%;
+      box-sizing: border-box;
+      height: fit-content;
+      margin: 2% 0;
+
+      &.mobile {
+        width: 85%;
+      }
+    }
+  }
+
+  &-text {
+    font-size: $font-size-normal;
+    color: $primary-light-color;
+  }
+}
+
+.typing {
+  color: $primary-light-color;
+  font-size: $font-size-h1;
+  font-weight: unset;
+  display: inline;
+}

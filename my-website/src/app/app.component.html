@@ -1,0 +1,12 @@
+<div class="app">
+  <div class="app-menu-burger" fxHide fxShow.lt-md [ngStyle]="{'color': iconMenu === 'close' ? 'black' : 'violet'}"
+    (click)="toggle()">
+    <mat-icon class="line"> {{ iconMenu }}</mat-icon>
+  </div>
+  <app-menu class="app-menu" fxHide.lt-md></app-menu>
+  <app-menu *ngIf="isMobile && visible" class="app-menu-mobile"></app-menu>
+
+  <div [@myAnimation]="o.isActivated ? o.activatedRoute : ''" class="app-container" ngClass.lt-md="mobile">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
+</div>

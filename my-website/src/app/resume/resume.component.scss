@@ -1,0 +1,28 @@
+@import "../../assets/styles/variables";
+
+.resume {
+  height: 100%;
+  padding: 1% 0;
+  width: 98%;
+  background-color: #FFFBEE;
+
+  &-section {
+    margin: 2% 1% 2% 2%;
+    padding-bottom: 1%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: $primary-light-color;
+
+    &-title {
+      padding: 15px 0 0;
+      margin: 15px;
+    }
+
+    &-content {
+      margin: 15px;
+
+      &-detail {
+        font-size: $font-size-normal;
+      }
+    }
+  }
+}
