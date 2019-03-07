@@ -12,7 +12,6 @@ import {ResumeComponent} from './resume/resume.component';
 import {AboutComponent} from './about/about.component';
 import { ServicesComponent } from './services/services.component';
 import { MatIconModule } from '@angular/material';
-import { NgScrollbarModule } from 'ngx-scrollbar';
 
 const appRoutes: Routes = [
 
@@ -58,8 +57,7 @@ const appRoutes: Routes = [
         appRoutes,
         { enableTracing: false } // <-- debugging purposes only
       ),
-      BrowserAnimationsModule,
-      NgScrollbarModule
+      BrowserAnimationsModule
   ],
   exports: [RouterModule],
   providers: [],

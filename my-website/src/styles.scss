@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT');
+@import url('https://fonts.googleapis.com/css?family=Arvo|Comfortaa|Domine|Fira+Sans|Space+Mono|Roboto|Josefin+Slab|Merriweather|Nunito');
+@import "/assets/styles/variables";
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $font-text;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: $font-size-h1;
+}
+
