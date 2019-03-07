@@ -11,7 +11,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ResumeComponent } from './resume/resume.component';
 import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
-import { MatIconModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
 
@@ -51,7 +52,8 @@ const appRoutes: Routes = [
     ResumeComponent,
     AboutComponent,
     ServicesComponent,
-    TypingAnimationDirective
+    TypingAnimationDirective,
+
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,10 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule
 
   ],
   exports: [RouterModule],

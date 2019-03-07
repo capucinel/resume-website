@@ -3,23 +3,53 @@
     <h1 class="contact-title">Contact me</h1>
     <p class="contact-text">Pour toute question ou demande, merci de remplir le formulaire ci-dessous. N'hésitez pas à
       me laisser vos coordonnées, je m'engage à vous recontacter dans les 48h.</p>
-    <form>
-
-      <mat-form-field>
-        <input matInput placeholder="Nom">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <label for="lastname">Nom :</label>
+      <mat-form-field appearance="fill" required>
+        <mat-label></mat-label>
+        <input matInput placeholder="Votre nom" formControlName="lastname">
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Prénom">
+      <label for="firstname">Prénom :</label>
+      <mat-form-field appearance="fill" required>
+        <mat-label></mat-label>
+        <input matInput placeholder="Votre prénom" formControlName="firstname">
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Objet">
+      <label for="email">Email :</label>
+      <mat-form-field appearance="fill">
+        <mat-label></mat-label>
+        <input matInput placeholder="Votre adresse email"  [formControl]="emailFormControl">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Merci de saisir une adresse email valide
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email est <strong>requis !</strong>
+        </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-        <textarea matInput placeholder="Textarea"></textarea>
+      <label for="phone">Téléphone :</label>
+      <mat-form-field appearance="fill">
+        <mat-label></mat-label>
+        <input type="tel" matInput placeholder="Votre téléphone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" formControlName="phone">
       </mat-form-field>
+
+      <label for="object">Objet :</label>
+      <mat-form-field appearance="fill" required>
+        <mat-label></mat-label>
+        <input matInput placeholder="Votre message concerne..." formControlName="object">
+      </mat-form-field>
+
+      <label for="message">Message :</label>
+      <mat-form-field appearance="fill" required>
+        <mat-label></mat-label>
+        <textarea rows="8" cols="33" matInput placeholder="Entrez votre message..." formControlName="message"></textarea>
+      </mat-form-field>
+
+      <div class="contact-btn">
+          <button mat-stroked-button color="warm" type="submit" [disabled]="!contactForm.valid">Envoyer</button>
+          <!-- <a mat-stroked-button routerLink=".">Envoyer</a> -->
+        </div>
 
 
     </form>
