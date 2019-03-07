@@ -12,9 +12,13 @@ p {
     background: url(/assets/photo/home.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    height: 97%;
+    height: 98%;
     padding: 1%;
     width: 98%;
+
+    &.mobile {
+      height: 100%;
+    }
   }
 
   &-content {
