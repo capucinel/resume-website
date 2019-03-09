@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { HttpService } from '../providers/http.service';
 import {FormControl, Validators, FormGroup} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
@@ -8,6 +9,9 @@ import {ErrorStateMatcher} from '@angular/material/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+
+  constructor(public http: HttpService) {}
+
   contactForm = new FormGroup({
     lastname: new FormControl(''),
     firstname:  new FormControl(''),
@@ -25,9 +29,23 @@ export class ContactComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.contactForm.value);
+
+    const data = this.contactForm.value;
+
+    this.http.sendEmail('http://localhost:4000/sendmail', data).subscribe(
+      data => {
+        const res: any = data;
+        console.log(
+          'test ok'
+        );
+      },
+      err => {
+        console.log('cest loupé meuf' + err);
+      }, () => {
+      }
+    );
   }
 
-  constructor() { }
 
   ngOnInit() {
   }

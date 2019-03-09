@@ -60,6 +60,6 @@ export const menuInfos: HomeDataMenu[] = [
 },
 {
   value: 'contact',
-  link: 'about'
+  link: 'contact'
 
 }];

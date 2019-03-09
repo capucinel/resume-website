@@ -13,6 +13,8 @@ import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
 import { MatIconModule, MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpService } from './providers/http.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
 
@@ -69,11 +71,12 @@ const appRoutes: Routes = [
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
 
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
