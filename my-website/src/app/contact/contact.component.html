@@ -18,20 +18,20 @@
       <label for="email">Email :</label>
       <mat-form-field appearance="fill">
         <mat-label></mat-label>
-        <input matInput placeholder="Votre adresse email" [formControl]="emailFormControl" formControlName="email">
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        <input matInput placeholder="Votre adresse email" formControlName="email">
+        <mat-error *ngIf="contactForm.get('email').hasError('email') && contactForm.get('email').invalid">
           Merci de saisir une adresse email valide
         </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
+        <mat-error *ngIf="contactForm.get('email').hasError('required')">
           Email est <strong>requis !</strong>
         </mat-error>
       </mat-form-field>
 
-      <!-- <label for="phone">Téléphone :</label>
+      <label for="phone">Téléphone :</label>
       <mat-form-field appearance="fill">
         <mat-label></mat-label>
         <input type="tel" matInput placeholder="Votre téléphone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" formControlName="phone">
-      </mat-form-field> -->
+      </mat-form-field>
 
       <label for="object">Objet :</label>
       <mat-form-field appearance="fill" required>

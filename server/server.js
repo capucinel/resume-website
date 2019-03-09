@@ -44,6 +44,8 @@ app.post("/sendmail", (req, res) => {
       console.log(err)
     else
       console.log(info);
+      res.send(info);
+      // transporter.close();
   });
 });
 

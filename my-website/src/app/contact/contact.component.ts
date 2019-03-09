@@ -1,7 +1,8 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { HttpService } from '../providers/http.service';
-import {FormControl, Validators, FormGroup} from '@angular/forms';
+import {FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -10,44 +11,42 @@ import {ErrorStateMatcher} from '@angular/material/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(public http: HttpService) {}
+  constructor(public http: HttpService, private fb: FormBuilder, private router: Router) {}
 
-  contactForm = new FormGroup({
-    lastname: new FormControl(''),
-    firstname:  new FormControl(''),
-    email: new FormControl(''),
-    phone:  new FormControl(''),
-    object:  new FormControl(''),
-    message:  new FormControl('')
-  });
+  contactForm: FormGroup;
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+
+  ngOnInit() {
+    this.contactForm = this.fb.group({
+      lastname: ['', Validators.required],
+      firstname:  ['', Validators.required],
+      phone:  ['', null],
+      object: ['', Validators.required],
+      message:  ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
+    });
+  }
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.contactForm.value);
 
-    const data = this.contactForm.value;
+    const message = this.contactForm.value;
 
-    this.http.sendEmail('http://localhost:4000/sendmail', data).subscribe(
+    this.http.sendEmail('http://localhost:4000/sendmail', message).subscribe(
       data => {
         const res: any = data;
         console.log(
           'test ok'
         );
+        alert('cool!');
+        this.router.navigate(['about']);
       },
       err => {
         console.log('cest loupé meuf' + err);
       }, () => {
       }
     );
-  }
-
-
-  ngOnInit() {
   }
 
 }
